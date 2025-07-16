@@ -1,48 +1,33 @@
-# Youtube-Video-Playlist-Downloader-Via-Python
-#Free Youtube Video Playlist Downloader Via Python
-import yt_dlp
+# YouTube Playlist Downloader (Educational Use Only)
 
-# Define the playlist URL (replace with your desired playlist URL)
-playlist_url = "YOUR_PLAYLIST_URL_HERE"
+This is a simple Python tool that automatically downloads videos from a YouTube playlist.  
+It uses `yt-dlp` (a powerful YouTube downloader) to extract and download each video individually.
 
-# Define the download path (replace with your desired download directory)
-download_path = "YOUR_DOWNLOAD_PATH_HERE"
+### 🔹 What It Does
+- Takes a YouTube playlist URL  
+- Extracts all video links  
+- Downloads each video one by one to a folder of your choice
 
-# Set up options for yt-dlp
-ydl_opts = {
-    'quiet': True,  # Suppress output from yt-dlp
-    'outtmpl': download_path + '/%(title)s.%(ext)s',  # Path to save the video
-}
+Great for personal use — like backing up your own uploaded videos, saving educational content, or offline access to Creative Commons content.
 
-# Function to extract video links from the playlist
-def extract_playlist_links(playlist_url):
-    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-        playlist_info = ydl.extract_info(playlist_url, download=False)
+---
 
-        # Check if the playlist contains videos
-        if 'entries' in playlist_info:
-            video_urls = []
-            for video in playlist_info['entries']:
-                video_urls.append(f"https://www.youtube.com/watch?v={video['id']}")
-            return video_urls
-        else:
-            print("No videos found in the playlist.")
-            return []
+### ⚠️ Disclaimer
+> This tool is intended **strictly for personal or educational use**.  
+> Do **not** use it to download copyrighted content without permission.  
+> Respect YouTube’s Terms of Service.
 
-# Function to download videos from the list of links
-def download_videos(video_links):
-    for video_link in video_links:
-        try:
-            # Use yt-dlp to download the video
-            with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-                ydl.download([video_link])
-            print(f"Download complete: {video_link}")
-        except Exception as e:
-            print(f"Failed to download {video_link}: {e}")
+---
 
-# Extract video links from the playlist
-video_links = extract_playlist_links(playlist_url)
+### 🔧 Tech Used
+- Python  
+- [yt-dlp](https://github.com/yt-dlp/yt-dlp) (open-source library)
 
-# If video links are found, proceed with downloading
-if video_links:
-    download_videos(video_links)
+---
+
+### ▶️ How to Run
+
+1. Install yt-dlp:
+```bash
+pip install yt-dlp
+python final_integration_of_code.py
