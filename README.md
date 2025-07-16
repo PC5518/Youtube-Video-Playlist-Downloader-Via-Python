@@ -3,6 +3,19 @@
 This is a simple Python tool that automatically downloads videos from a YouTube playlist.  
 It uses `yt-dlp` (a powerful YouTube downloader) to extract and download each video individually.
 
+
+
+Things that you need to download manually 
+Downloaded from ffmpeg.org
+
+Unzipped and placed inside a system folder or project folder
+
+Added to PATH so that yt-dlp can use it silently in the background
+In order to check whether it's placed properly or not, you can use your terminal  Open Command Prompt and type:
+
+bash Copy Edit ffmpeg -version
+ 
+ 
 ### 🔹 What It Does
 - Takes a YouTube playlist URL  
 - Extracts all video links  
